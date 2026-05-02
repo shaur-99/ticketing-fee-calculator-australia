@@ -186,6 +186,28 @@ h1 {
   background: var(--bg);
 }
 
+.profit-summary {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr);
+  margin-top: 18px;
+  border: 1px solid var(--line-strong);
+  border-left: 5px solid var(--amber);
+  border-radius: 8px;
+  background: var(--amber-soft);
+}
+
+.profit-summary > div {
+  display: grid;
+  gap: 8px;
+  padding: 20px 22px;
+}
+
+.profit-summary strong {
+  color: var(--amber);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

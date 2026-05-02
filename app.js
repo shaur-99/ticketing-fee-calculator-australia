@@ -16,7 +16,9 @@ const grossSalesEl = document.querySelector("#grossSales");
 const yourTotalEl = document.querySelector("#yourTotal");
 const yourPerTicketEl = document.querySelector("#yourPerTicket");
 const bestSavingEl = document.querySelector("#bestSaving");
+const ourProfitEl = document.querySelector("#ourProfit");
 const resetButton = document.querySelector("#resetButton");
+const profitPerTicket = 1.43;
 
 const competitors = [
   {
@@ -56,6 +58,7 @@ function render() {
   const price = cleanNumber(ticketPriceInput.value);
   const grossSales = tickets * price;
   const yourApp = competitors[0].calculate(price, tickets);
+  const ourProfit = tickets * profitPerTicket;
   const publicCompetitors = competitors
     .filter((competitor) => !competitor.benchmark && !competitor.unavailable)
     .map((competitor) => ({
@@ -71,6 +74,7 @@ function render() {
   yourTotalEl.textContent = formatCurrency(yourApp);
   yourPerTicketEl.textContent = tickets > 0 ? formatCurrency(yourApp / tickets) : formatCurrency(0);
   bestSavingEl.textContent = savings.length ? formatCurrency(Math.max(...savings)) : formatCurrency(0);
+  ourProfitEl.textContent = formatCurrency(ourProfit);
 
   comparisonBody.innerHTML = competitors
     .map((competitor) => {
