@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ticketing Fee Calculator Australia</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <div>
+          <h1>Ticketing Fee Calculator (Australia)</h1>
+          <p>Compare what each platform takes from a paid ticket event.</p>
+        </div>
+        <p class="formula-note">Your app pricing: <strong>1.95% + A$0.99</strong> per paid ticket</p>
+      </header>
+
+      <section class="controls" aria-label="Event inputs">
+        <label class="field" for="ticketCount">
+          <span>Number of paid tickets</span>
+          <input id="ticketCount" type="number" inputmode="numeric" min="0" step="1" value="100" />
+        </label>
+        <label class="field" for="ticketPrice">
+          <span>Ticket price (A$)</span>
+          <input id="ticketPrice" type="number" inputmode="decimal" min="0" step="0.01" value="20.00" />
+        </label>
+        <button class="reset-button" id="resetButton" type="button" aria-label="Reset calculator">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M4 12a8 8 0 1 0 2.34-5.66" />
+            <path d="M4 4v5h5" />
+          </svg>
+          Reset
+        </button>
+      </section>
+
+      <section class="summary" aria-label="Your app summary">
+        <div>
+          <span class="summary-label">Gross ticket sales</span>
+          <strong id="grossSales">A$2,000.00</strong>
+        </div>
+        <div>
+          <span class="summary-label">Your app takes</span>
+          <strong id="yourTotal">A$138.00</strong>
+        </div>
+        <div>
+          <span class="summary-label">Fee per ticket</span>
+          <strong id="yourPerTicket">A$1.38</strong>
+        </div>
+        <div>
+          <span class="summary-label">Best public saving</span>
+          <strong id="bestSaving">A$88.00</strong>
+        </div>
+      </section>
+
+      <section class="table-wrap" aria-label="Competitor fee comparison">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Competitor</th>
+              <th scope="col">Money taken</th>
+            </tr>
+          </thead>
+          <tbody id="comparisonBody"></tbody>
+        </table>
+      </section>
+
+      <footer class="notes">
+        <p>
+          <strong>Assumptions:</strong> one ticket per order, domestic Australian card, organiser absorbs fees where comparable.
+          Only publicly modelled competitor pricing is shown.
+        </p>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
